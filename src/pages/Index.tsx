@@ -121,11 +121,24 @@ const Index = () => {
               className={`relative h-96 lg:h-[550px] transition-all duration-1000 flex items-center justify-center ${visibleSections["hero"] ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-transparent to-transparent rounded-3xl blur-3xl animate-pulse" />
-              <img
-                src="https://cdn.poehali.dev/projects/07d3f02b-3e53-4271-a8ab-5dc5e9dd2bae/files/9341d8fe-9ce8-4dae-867b-3685de1edba1.jpg"
-                alt="AI оживление фото"
-                className="w-full max-w-sm lg:max-w-md drop-shadow-2xl rounded-2xl relative z-10 object-cover"
-              />
+              <div className="relative z-10 w-full max-w-sm lg:max-w-md">
+                <style>{`
+                  @keyframes blink {
+                    0%, 90%, 100% { transform: scaleY(1); }
+                    95% { transform: scaleY(0.05); }
+                  }
+                  .blink-anim {
+                    animation: blink 3.5s ease-in-out infinite;
+                    transform-origin: center;
+                    display: block;
+                  }
+                `}</style>
+                <img
+                  src="https://cdn.poehali.dev/projects/07d3f02b-3e53-4271-a8ab-5dc5e9dd2bae/bucket/5d59009d-1ace-4e14-8d61-70e21fda2945.png"
+                  alt="AI персонаж"
+                  className="blink-anim w-full drop-shadow-2xl rounded-2xl object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
