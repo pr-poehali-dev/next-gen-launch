@@ -124,20 +124,39 @@ const Index = () => {
               <div className="relative z-10 w-full max-w-sm lg:max-w-md">
                 <style>{`
                   @keyframes blink {
-                    0%, 90%, 100% { transform: scaleY(1); }
-                    95% { transform: scaleY(0.05); }
+                    0%, 88%, 100% { transform: scaleY(1); }
+                    93% { transform: scaleY(0.05); }
+                  }
+                  @keyframes headway {
+                    0%, 100% { transform: rotate(-2deg) translateX(-3px); }
+                    25% { transform: rotate(1.5deg) translateX(2px); }
+                    50% { transform: rotate(2.5deg) translateX(4px); }
+                    75% { transform: rotate(-1deg) translateX(-2px); }
+                  }
+                  @keyframes glow-pulse {
+                    0%, 100% { box-shadow: 0 0 30px 8px rgba(168,85,247,0.35), 0 0 60px 20px rgba(168,85,247,0.15); }
+                    50% { box-shadow: 0 0 50px 16px rgba(168,85,247,0.55), 0 0 90px 35px rgba(168,85,247,0.25); }
+                  }
+                  .char-wrapper {
+                    animation: headway 4s ease-in-out infinite;
+                    transform-origin: bottom center;
+                    border-radius: 1rem;
+                    animation: headway 4s ease-in-out infinite, glow-pulse 3s ease-in-out infinite;
                   }
                   .blink-anim {
                     animation: blink 3.5s ease-in-out infinite;
                     transform-origin: center;
                     display: block;
+                    border-radius: 1rem;
                   }
                 `}</style>
-                <img
-                  src="https://cdn.poehali.dev/projects/07d3f02b-3e53-4271-a8ab-5dc5e9dd2bae/bucket/5d59009d-1ace-4e14-8d61-70e21fda2945.png"
-                  alt="AI персонаж"
-                  className="blink-anim w-full drop-shadow-2xl rounded-2xl object-cover"
-                />
+                <div className="char-wrapper">
+                  <img
+                    src="https://cdn.poehali.dev/projects/07d3f02b-3e53-4271-a8ab-5dc5e9dd2bae/bucket/5d59009d-1ace-4e14-8d61-70e21fda2945.png"
+                    alt="AI персонаж"
+                    className="blink-anim w-full drop-shadow-2xl object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
